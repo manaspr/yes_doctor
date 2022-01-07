@@ -18,8 +18,8 @@ class scaffold extends StatelessWidget {
         child: widget,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF8058F5),
-        child: Icon(Icons.add),
+        backgroundColor: const Color(0xFF8058F5),
+        child: const Icon(Icons.home),
         onPressed: () {
           Navigator.push(
             context,
@@ -28,7 +28,7 @@ class scaffold extends StatelessWidget {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavi(),
+      bottomNavigationBar: const BottomNavi(),
     );
   }
 }

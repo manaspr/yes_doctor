@@ -11,7 +11,9 @@ class YesDoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Yes Doctor',
-      home: MyHomePage(),
+      home: SafeArea(
+        child: MyHomePage(),
+      ),
     );
   }
 }

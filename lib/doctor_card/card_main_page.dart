@@ -37,6 +37,7 @@ class DoctorCard extends StatelessWidget {
       backgroundColor: Colors.grey[900],
       body: Center(
         child: Container(
+          margin: const EdgeInsets.only(bottom: 30),
           height: height * 0.7,
           width: width * 0.8,
           decoration: BoxDecoration(
@@ -80,10 +81,13 @@ class DoctorCard extends StatelessWidget {
                       ),
                       Center(
                           child: CircleAvatar(
-                        radius: 70.0,
+                        radius: 55.0,
                         backgroundImage: NetworkImage(imgurl!),
                         backgroundColor: Colors.transparent,
                       )),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         name!,
                         style: TextStyle(
@@ -93,7 +97,7 @@ class DoctorCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 110,
+                        height: 80,
                       ),
                       detailWidget(
                         icon: Icons.phone,
@@ -116,8 +120,8 @@ class DoctorCard extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF8058F5),
-        child: Icon(Icons.add),
+        backgroundColor: const Color(0xFF8058F5),
+        child: const Icon(Icons.home),
         onPressed: () {
           Navigator.push(
             context,
@@ -126,7 +130,7 @@ class DoctorCard extends StatelessWidget {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavi(),
+      bottomNavigationBar: const BottomNavi(),
     );
   }
 
@@ -158,7 +162,7 @@ class DoctorCard extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
+          const Divider(),
         ],
       ),
     );

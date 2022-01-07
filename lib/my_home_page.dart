@@ -89,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // extendBody: true,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF8058F5),
-        child: Icon(Icons.add),
+        backgroundColor: const Color(0xFF8058F5),
+        child: const Icon(Icons.home),
         onPressed: () {
           Navigator.push(
             context,
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavi(),
+      bottomNavigationBar: const BottomNavi(),
     );
   }
 }

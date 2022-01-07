@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yes_doctor/etc_pages/chat.dart';
-import 'package:yes_doctor/etc_pages/dashboard.dart';
-import 'package:yes_doctor/etc_pages/profile.dart';
-import 'package:yes_doctor/etc_pages/settings.dart';
+import 'package:yes_doctor/etc_pages/about_me.dart';
+import 'package:yes_doctor/etc_pages/album.dart';
 
 class BottomNavi extends StatefulWidget {
   const BottomNavi({Key? key}) : super(key: key);
@@ -12,31 +10,14 @@ class BottomNavi extends StatefulWidget {
 }
 
 class _BottomNaviState extends State<BottomNavi> {
-  int currentTab = 0; // to keep track of active tab index
-  final List<Widget> screens = [
-    Dashboard(),
-    Chat(),
-    Profile(),
-    Settings(),
-  ]; // to store nested tabs
-  Widget currentScreen = Dashboard(); // Our first view in viewport
+  int currentTab = 0;
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
       notchMargin: 10,
-      child: Container(
-        // decoration: const BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.bottomLeft,
-        //     end: Alignment.topRight,
-        //     colors: [
-        //       Color(0xFF7053CE),
-        //       Color(0xFFBDA8F8),
-        //     ],
-        //   ),
-        // ),
+      child: SizedBox(
         height: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,31 +28,36 @@ class _BottomNaviState extends State<BottomNavi> {
                 MaterialButton(
                   minWidth: 40,
                   onPressed: () {
-                    setState(() {
-                      currentScreen = Dashboard();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Dashboard()),
-                      );
-                      currentTab = 0;
-                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(
+                          title: "Service Area",
+                          name: 'Stay Update!',
+                          other: '',
+                          imgpath: 'assets/redsapla.jpg',
+                          middle: Padding(
+                            padding: EdgeInsets.only(left: 10.0, right: 10.00),
+                            child: Text(
+                                'Gopalganj is a town in Gopalgonj District in the Dhaka Division of Bangladesh. It serves as the headquarters of Gopalgonj District and Gopalganj Sadar Upazila.'),
+                          ),
+                          mail: 'Mail: yesdoctor@gmail.com',
+                          phone: 'Mobile: 01711000000',
+                        ),
+                      ),
+                    );
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: const <Widget>[
                       Icon(
-                        Icons.dashboard,
-                        color: currentTab == 0
-                            ? Colors.deepPurpleAccent
-                            : Colors.grey,
+                        Icons.map,
+                        color: Colors.grey,
                       ),
                       Text(
-                        'Dashboard',
+                        'Aria',
                         style: TextStyle(
-                          color: currentTab == 0
-                              ? Colors.deepPurpleAccent
-                              : Colors.grey,
+                          color: Colors.grey,
                         ),
                       ),
                     ],
@@ -80,30 +66,36 @@ class _BottomNaviState extends State<BottomNavi> {
                 MaterialButton(
                   minWidth: 40,
                   onPressed: () {
-                    setState(() {
-                      currentScreen = Chat();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Chat()),
-                      ); // if user taps on this dashboard tab will be active
-                      currentTab = 1;
-                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(
+                          title: "Call For Listing",
+                          other: '',
+                          name: "Contact Us",
+                          imgpath: 'assets/contact.jpg',
+                          middle: Padding(
+                            padding: EdgeInsets.only(left: 10.0, right: 10.00),
+                            child: Text(
+                                'We are always here to happily help you. If you are a doctor or owener of of a diagnotic center this is for you. Just call us or drop a massage for listing'),
+                          ),
+                          mail: 'Mail: yesdoctor@gmail.com',
+                          phone: 'Mobile: 01711000000',
+                        ),
+                      ),
+                    );
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: const <Widget>[
                       Icon(
-                        Icons.chat,
-                        color: currentTab == 1
-                            ? Colors.deepPurpleAccent
-                            : Colors.grey,
+                        Icons.call,
+                        color: Colors.grey,
                       ),
                       Text(
-                        'Chats',
+                        'Listing',
                         style: TextStyle(
-                          color: currentTab == 1
-                              ? Colors.deepPurpleAccent
-                              : Colors.grey,
+                          color: Colors.grey,
                         ),
                       ),
                     ],
@@ -120,27 +112,30 @@ class _BottomNaviState extends State<BottomNavi> {
                 MaterialButton(
                   minWidth: 40,
                   onPressed: () {
-                    setState(() {
-                      currentScreen = Profile();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Profile()),
-                      ); // if user taps on this dashboard tab will be active
-                      currentTab = 2;
-                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfilePage(
+                          title: "About Me",
+                          name: 'Manas Mandal',
+                          other: 'Freelancer',
+                          imgpath: 'assets/profile.jpg',
+                          middle: infoSection(),
+                          mail: 'Mail: abcd@gmail.com',
+                          phone: 'Mobil: 01711000000',
+                        ),
+                      ),
+                    ); // if user taps on this dashboard tab will be active
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(
-                        Icons.dashboard,
-                        color: currentTab == 2
-                            ? Colors.deepPurpleAccent
-                            : Colors.grey,
+                      const Icon(
+                        Icons.people,
+                        color: Colors.grey,
                       ),
                       Text(
-                        'Profile',
+                        'Auther',
                         style: TextStyle(
                           color: currentTab == 2
                               ? Colors.deepPurpleAccent
@@ -153,31 +148,24 @@ class _BottomNaviState extends State<BottomNavi> {
                 MaterialButton(
                   minWidth: 40,
                   onPressed: () {
-                    setState(() {
-                      currentScreen = Settings();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Settings()),
-                      ); // if user taps on this dashboard tab will be active
-                      currentTab = 3;
-                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AlbumGp(),
+                      ),
+                    ); // if user taps on this dashboard tab will be active
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+                    children: const <Widget>[
                       Icon(
-                        Icons.chat,
-                        color: currentTab == 3
-                            ? Colors.deepPurpleAccent
-                            : Colors.grey,
+                        Icons.album,
+                        color: Colors.grey,
                       ),
                       Text(
-                        'Settings',
+                        'Album',
                         style: TextStyle(
-                          color: currentTab == 3
-                              ? Colors.deepPurpleAccent
-                              : Colors.grey,
+                          color: Colors.grey,
                         ),
                       ),
                     ],
@@ -188,6 +176,56 @@ class _BottomNaviState extends State<BottomNavi> {
           ],
         ),
       ),
+    );
+  }
+
+  /// Info Section
+  Container infoSection() {
+    return Container(
+      margin: const EdgeInsets.all(15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _infoCell(title: 'Projects', value: '8000+'),
+          Container(
+            width: 1,
+            height: 40,
+            color: Colors.grey,
+          ),
+          _infoCell(title: 'Hourly Rate', value: "\$65"),
+          Container(
+            width: 1,
+            height: 40,
+            color: Colors.grey,
+          ),
+          _infoCell(title: 'Location', value: 'Gopalganj'),
+        ],
+      ),
+    );
+  }
+
+  /// Info Cell
+  Column _infoCell({String? title, String? value}) {
+    return Column(
+      children: <Widget>[
+        Text(
+          title!,
+          style: const TextStyle(
+            fontWeight: FontWeight.w300,
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          value!,
+          style: const TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+          ),
+        ),
+      ],
     );
   }
 }

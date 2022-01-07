@@ -28,7 +28,7 @@ class DiagnosticPage extends StatelessWidget {
               child: Card(
                 color: Colors.amber[100],
                 elevation: 8,
-                shadowColor: Color(0xFF7053CE),
+                shadowColor: const Color(0xFF7053CE),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DiagnosticListTile(data),
